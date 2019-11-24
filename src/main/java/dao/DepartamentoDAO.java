@@ -8,8 +8,8 @@ import org.mongodb.morphia.Datastore;
 import java.util.List;
 
 public interface DepartamentoDAO extends GenericDAO<Departamento> {
-    List<Departamento> findByNome(String nome);
-    Departamento findByNumero(int numero);
+    List<Departamento> findAll();
+    Departamento findDep(int numero, String nome);
 
 
 

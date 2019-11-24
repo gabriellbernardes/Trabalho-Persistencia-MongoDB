@@ -16,17 +16,15 @@ public class DepartamentoMorphiaDAO extends GenericMorphiaDAO<Departamento> impl
         super(Departamento.class);
     }
     @Override
-    public List<Departamento> findByNome(String nome) {
-        List<Departamento> deps = MorphiaUtil.getDatastore().createQuery(Departamento.class)
-                .field("nome")
-                .contains(nome).asList();
+    public List<Departamento> findAll() {
+        List<Departamento> deps = MorphiaUtil.getDatastore().createQuery(Departamento.class).asList();
         return deps;
-
     }
     @Override
-    public Departamento findByNumero(int numero) {
+    public Departamento findDep(int numero, String nome) {
         Query<Departamento> dep = MorphiaUtil.getDatastore().createQuery(Departamento.class)
-                .filter("numero", numero);
+                .field("nome").contains(nome)
+                .filter("numero" , numero);
         return dep.get();
 
     }

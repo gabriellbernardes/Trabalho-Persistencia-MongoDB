@@ -29,10 +29,9 @@ public class LimpezaMorphiaDAO extends FuncionarioMorphiaDAO<Limpeza> implements
     }
 
     @Override
-    public List<Limpeza> SupervisorList(Limpeza l) {
+    public List<Limpeza> SupervisorList() {
         List<Limpeza> limps = MorphiaUtil.getDatastore().createQuery(Limpeza.class)
-                .field("supervisor")
-                .equal(l).asList();
+                .filter("supervisor", true).asList();
         return limps;
     }
 

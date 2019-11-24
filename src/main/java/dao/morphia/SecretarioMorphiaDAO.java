@@ -14,10 +14,10 @@ public class SecretarioMorphiaDAO extends FuncionarioMorphiaDAO<Secretario> impl
 
 
     @Override
-    public List<Secretario> findByEscolaridade(String horas) {
+    public List<Secretario> findByEscolaridade(String escolaridade) {
             List<Secretario> secs = MorphiaUtil.getDatastore().createQuery(Secretario.class)
-                    .field("horas")
-                    .equal(horas).asList();
+                    .field("escolaridade")
+                    .equal(escolaridade).asList();
             return secs;
 
         }

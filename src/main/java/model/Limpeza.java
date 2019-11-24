@@ -46,7 +46,7 @@ public class Limpeza extends Funcionario {
         return supervisor;
     }
 
-    public void setSupervisor(Funcionario supervisor) {
+    public void setSupervisor(Limpeza supervisor) {
         this.supervisor = supervisor;
     }
 

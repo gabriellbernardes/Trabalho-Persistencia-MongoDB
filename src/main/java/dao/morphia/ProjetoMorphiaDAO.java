@@ -13,10 +13,18 @@ public class ProjetoMorphiaDAO extends GenericMorphiaDAO<Projeto> implements Pro
         super(Projeto.class);
     }
     @Override
-    public List<Projeto> findByNome(String nome) {
+    public List<Projeto> findByNomeList(String nome) {
         List<Projeto> projs = MorphiaUtil.getDatastore().createQuery(Projeto.class)
                 .field("nome")
                 .contains(nome).asList();
+        return projs;
+
+    }
+    @Override
+    public Projeto findByNome(String nome) {
+        Projeto projs = MorphiaUtil.getDatastore().createQuery(Projeto.class)
+                .field("nome")
+                .contains(nome).get();
         return projs;
 
     }

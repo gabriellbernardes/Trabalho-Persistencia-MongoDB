@@ -1,12 +1,16 @@
 package dao;
 
+import model.Dependente;
 import model.Funcionario;
-import model.Pesquisador;
+import org.bson.types.ObjectId;
+
 
 import java.util.List;
 
 public interface FuncionarioDAO<T> extends GenericDAO<T> {
-    List<Funcionario> findByNome(String nome, Class<T> tClass);
+    Funcionario findByNome(String nome, Class<T> tClass);
     List<Funcionario> SalarioMaiorQ(Double salario, Class<T> tClass);
+    Dependente AddDependente();
 
-}
+
+    }
