@@ -38,6 +38,7 @@ public class CrudLimp {
                 .get();
 
         if(limp==null) {
+
             limpDao.save(limpeza);
             JOptionPane.showMessageDialog(null, "Adicionado!!");
         }else {
@@ -103,6 +104,7 @@ public class CrudLimp {
         limp = new Limpeza(nome.getText(),sexo.getText(), c ,Double.parseDouble(salario.getText()),dep
                 ,end,cargo.getText(),Integer.parseInt(jornada.getText()), null);
         limp.addDependente(limpDao.AddDependente());
+        limp.setSupervisor(SetSupervisor());
         return limp;
     }
 
@@ -142,13 +144,9 @@ public class CrudLimp {
 
 
     }
-    public  void SetSupervisor(Limpeza l, Limpeza supervisor){
-        Query<Limpeza> query = MorphiaUtil.getDatastore().createQuery(Limpeza.class).
-                field("_id").contains(l.getId().toString());
-
-        UpdateOperations<Limpeza> updates = MorphiaUtil.getDatastore().createUpdateOperations(Limpeza.class)
-                .addToSet("supervisor", supervisor);
-        MorphiaUtil.getDatastore().update(query, updates);
+    public static Limpeza SetSupervisor(){
+        Funcionario func = limpDao.findByNome(JOptionPane.showInputDialog("Nome"), Limpeza.class);
+        return  (Limpeza) func;
     }
 
     public void listSupervisor(){

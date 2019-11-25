@@ -25,7 +25,7 @@ public class Menu {
                 case '1': // inserir
                     char opcaob;
                     String submenu = "Escolha uma opção:\n1 - Inserir Departamento\n2 - Inserir um Projeto \n3 - Inserir uma Pesquisa\n4 - Inserir um Secretario\n" +
-                            "5 - Inserir Limpeza \n6 - Inserir Pesquisador \n7 - Inserir um Dependente\n8 - Inserir Um Supervisor De Limpezas\n9 - Sair";
+                            "5 - Inserir Limpeza \n6 - Inserir Pesquisador \n9 - Sair";
 
                     do {
                         opcaob = JOptionPane.showInputDialog(submenu).charAt(0);
